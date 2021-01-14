@@ -1,21 +1,23 @@
 
 $(document).ready(function () {
-    var clock = moment().format('MMMM Do YYYY, h:mm:ss a');
+    
     function getTime() {
-        // var clock = moment().format('MMMM Do YYYY, h:mm:ss a');
+        var clock = moment().format('MMMM Do YYYY, h:mm:ss a');
         $("#currentDay").text(clock);
     }
     setInterval(getTime, 1000);
 
-
-    // var time = moment().hour();
-    $(".time-block").each(function () {
-        if (this.data - hour < clock) {
+$(".row").each(function(){
+    var currentTime = moment().time();
+    console.log(currentTime)
+    var time =$(".time-block").attr("id");
+    console.log(time)
+    if (this.time < currentTime) {
             $(this).removeClass("future");
             $(this).removeClass("present");
             $(this).addClass("past");
         }
-        else if (this.data - hour === clock) {
+        else if (this.timeNow === currentTime) {
             $(this).removeClass("past");
             $(this).removeClass("future");
             $(this).addClass("present");
