@@ -8,16 +8,17 @@ $(document).ready(function () {
     setInterval(getTime, 1000);
 
 $(".row").each(function(){
-    var currentTime = moment().time();
+    var currentTime = moment().hour();
     console.log(currentTime)
     var time =$(".time-block").attr("id");
     console.log(time)
-    if (this.time < currentTime) {
+    if (time < currentTime) {
+        console.log(time)
             $(this).removeClass("future");
             $(this).removeClass("present");
             $(this).addClass("past");
         }
-        else if (this.timeNow === currentTime) {
+        else if (time === currentTime) {
             $(this).removeClass("past");
             $(this).removeClass("future");
             $(this).addClass("present");
