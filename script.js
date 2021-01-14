@@ -2,14 +2,14 @@
 $(document).ready(function () { //To get code start functioning. 
 
     // defining a function to get current time.
-    function getTime() { 
-        //using moment methods to get dae and time formats and storing in variable clock
+    function getTime() {
+        //using moment methods to get date and time formats and storing in variable clock
         var clock = moment().format('MMMM Do YYYY, h:mm:ss a');
         $("#currentDay").text(clock);
     }
     //using setInterval method to getTime functioned every second.
     setInterval(getTime, 1000);
-//diffrentiating the time blocks as past present and future classes. Looping from each row.
+    //diffrentiating the time blocks as past present and future classes. Looping from each row.
     $(".row").each(function () {
         //using moment methods to call current hour and store in currentTime variable.
         var currentTime = moment().hour();
@@ -39,10 +39,11 @@ $(document).ready(function () { //To get code start functioning.
     $(".saveBtn").click(function () {
         //siblings method is used to get input event from textarea. As textarea is siblings of saveBtn.
         //while parent is used as data-hour attribute is parent to saveBtn.
-      var inputValue = $(this).siblings('textarea').val();
-      var input = $(this).parent().attr('data-hour');
-      localStorage.setItem(input, inputValue);
-    // $(this).click(empty);
+        var inputValue = $(this).siblings('textarea').val();
+        var input = $(this).parent().attr('data-hour');
+        localStorage.setItem(input, inputValue);
+        
     });
+    
 });
 
