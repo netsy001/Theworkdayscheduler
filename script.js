@@ -11,6 +11,7 @@ $(document).ready(function () {
         var currentTime = moment().hour();
         // console.log(currentTime)
         var time = parseInt($(this).attr("data-hour"));
+        $(this).children('textarea').val(localStorage.getItem(time));
         // console.log(time)
         if (time < currentTime) {
             // console.log(time)
@@ -31,10 +32,11 @@ $(document).ready(function () {
     });
 
     $(".saveBtn").click(function () {
-      var inputValue = $(".description").value;
-      localStorage.setItem(".description", inputValue);
-      $(".description").text(localStorage.getItem("inputValue"));
-    $(".saveBtn").click(empty);
+      var inputValue = $(this).siblings('textarea').val();
+      var input = $(this).parent().attr('data-hour');
+      console.log(input)
+      localStorage.setItem(input, inputValue);
+    // $(this).click(empty);
     });
 });
 
